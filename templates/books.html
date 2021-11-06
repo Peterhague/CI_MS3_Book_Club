@@ -8,11 +8,12 @@
 </head>
 <body>
     {% for book in books %}
-        {{ books.title }}<br>
-        {{ books.author_first }}<br>
-        {{ books.author_last }}<br>
-        {{ books.date }}<br>
-        {{ books.start }}<br>
+        {{ book.title }}<br>
+        {{ book.author_first }}<br>
+        {{ book.author_last }}<br>
+        {{ book.date }}<br>
+        {{ book.start }}<br>
+        {{ book.end }}<br>
     {% endfor %}
 </body>
 </html>
