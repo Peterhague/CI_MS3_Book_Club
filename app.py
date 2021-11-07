@@ -70,9 +70,9 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_tasks")
-def get_tasks():
-    tasks = mongo.db.tasks.find()
+@app.route("/see_books")
+def see_books():
+    books = mongo.db.books.find()
     return render_template("books.html", books=books)
 
 
