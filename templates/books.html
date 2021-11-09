@@ -11,18 +11,18 @@
     {% endfor %}
 
     <ul class="collapsible">
+        {% for book in books %}
         <li>
-          <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header">
+              <i class="fas fa-caret-down"></i>
+              <strong>{{ book.title }}</strong> : {{ book.end }}
+            </div>
+          <div class="collapsible-body">
+              <strong>{{ book.author_first }}</strong>
+              <p>{{ book.date }}</p>
+          </div>
         </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-caret-down"></i>Second</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="fas fa-caret-down"></i>Third</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% enfor %}
       </ul>
 
 {% endblock %}

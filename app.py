@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/see_books")
 
 def see_books():
-    books = mongo.db.books.find()
+    books = list(mongo.db.books.find())
     return render_template("books.html", books=books)
 
 
