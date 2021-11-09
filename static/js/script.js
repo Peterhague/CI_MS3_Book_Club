@@ -1,5 +1,13 @@
 $(document).ready(function(){
     $(".sidenav").sidenav();
     $('.collapsible').collapsible();
-    $('.datepicker').datepicker();
+    $('select').formSelect();
+    $('.datepicker').datepicker({
+        format:"dd mm, yyyy",
+        yearRange: 3,
+        showClearBtn: true,
+        i18n: {
+            done: "Select"
+        }
+    });
 });
