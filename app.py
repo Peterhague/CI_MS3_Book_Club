@@ -105,8 +105,8 @@ def add_book():
         }
         mongo.db.books.insert_one(book)
         flash("Book Successfully Added")
-        return redirect(url_for("get_tasks")) 
-        
+        return redirect(url_for("see_books")) 
+
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("add_book.html", genres=genres)
 
