@@ -11,7 +11,11 @@
               <select id="genre_name" name="genre_name" class="validate" required>
                 <option value="" disabled selected>Choose Genre</option>
                 {% for genre in genres %}
-                  <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                  {% if genre.genre_name == book.genre_name %}
+                    <option value="{{ genre.genre_name }}" selected>{{ genre.genre_name }}</option>
+                  {% else %}
+                    <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                  {% endif %}
                 {% endfor %}
               </select>
               <label for="genre_name">Book Genre</label>
