@@ -94,7 +94,7 @@ def logout():
 
 
 @app.route("/add_book")
-def add_book():db
+def add_book():
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("add_book.html", genres=genres)
 
