@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">Edit Book</h3>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('edit_book', task_id=task._id) }}">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-folder-open prefix"></i>
+              <select id="genre_name" name="genre_name" class="validate" required>
+                <option value="" disabled selected>Choose Genre</option>
+                {% for genre in genres %}
+                  <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                {% endfor %}
+              </select>
+              <label for="genre_name">Book Genre</label>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-pencil-alt prefix"></i>
+              <input id="book_title" name="book_title" minlength="5" maxlength="50"
+               type="text" class="validate" required>
+              <label for="book_title">Book Title</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-align-left prefix"></i>
+              <textarea id="book_description" name="book_description" minlength="5"
+              maxlength="200" class="materialize-textarea validate" required></textarea>
+              <label for="book_description">Book Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-calendar-alt prefix"></i>
+              <input id="start_date" name="start_date"
+               type="text" class="datepicker validate" required>
+              <label for="start_date">Start Date</label>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+              <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                  Edit Book <i class="fas fa-edit right"></i>
+                </button>
+              </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
