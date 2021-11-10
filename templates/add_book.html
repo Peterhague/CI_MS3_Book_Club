@@ -7,13 +7,14 @@
         <form class="col s12" method="POST" action="">
           <div class="row">
             <div class="input-field col s12">
-              <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+              <i class="fas fa-folder-open prefix"></i>
+              <select id="genre_name" name="genre_name" class="validate" required>
+                <option value="" disabled selected>Choose Genre</option>
+                {% for genre in genres %}
+                  <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                {% endfor %}
               </select>
-              <label>Materialize Select</label>
+              <label for="genre_name">Book Genre</label>
             </div>
           </div>  
           <div class="row">
