@@ -14,8 +14,12 @@
         {% for book in books %}
         <li>
             <div class="collapsible-header">
-              <i class="fas fa-caret-down"></i>
-              <strong>{{ book.title }}</strong> : {{ book.end }}
+              <div class="col s3">
+                <i class="fas fa-caret-down"></i>
+              </div>
+              <div class="col s9">
+                <strong>{{ book.title }}</strong> : {{ book.end }}
+              </div>
             </div>
           <div class="collapsible-body">
               <strong>{{ book.author_first }}</strong>
