@@ -120,7 +120,7 @@ def edit_book(book_id):
         submit = {
             "genre_name": request.form.get("genre_name"),
             "book_title": request.form.get("book_title"),
-            "author_first": request.form.get("author_first"),            
+            "author_first": request.form.get("author_first"),
             "author_last": request.form.get("author_last"),
             "date": request.form.get("date"),
             "book_description": request.form.get("book_description"),
