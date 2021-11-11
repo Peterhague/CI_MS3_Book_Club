@@ -139,6 +139,16 @@ def delete_book(book_id):
     return redirect(url_for("see_books"))
 
 
+@app.route("/join_club/<book_id>", methods=["GET", "POST"])
+def join_club(book_id):
+    if request.method == "POST":
+        member = {
+            "members": session["user"]
+        }
+    mongo.db.books.update({"_id": ObjectId(book_id)}, member)
+    flash("You have joined this book club")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
