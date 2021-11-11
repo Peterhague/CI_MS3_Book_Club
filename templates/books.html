@@ -17,11 +17,11 @@
               </div>
             </div>
           <div class="collapsible-body">
-              <p>{{ book.date }}</p>
-              <p>{{ book.description }}</p>
-              <p>{{ book.start }}</p>
-              <p>{{ book.end }}</p>
-              <p><em>by: {{ book.created_by }}</em></p>
+              <p>First Published: {{ book.date }}</p>
+              <p>Club Start Date: {{ book.start }}</p>
+              <p>Club End Date: {{ book.end }}</p>
+              <p><em>Book club started by: {{ book.created_by }}</em></p>
+              <p><em>{{ book.description }}</em></p>
           </div>
         </li>
         {% endfor %}
