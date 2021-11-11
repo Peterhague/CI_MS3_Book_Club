@@ -2,7 +2,7 @@
 {% block content %}
 
     {% for book in books %}
-        {{ book.title }}<br>
+        {{ book.book_title }}<br>
         {{ book.author_first }}<br>
         {{ book.author_last }}<br>
         {{ book.date }}<br>
@@ -22,7 +22,7 @@
                 {% endif %}
               </div>
               <div class="col s9">
-                <strong>{{ book.title }}</strong> : {{ book.end }}
+                <strong>{{ book.book_title }}</strong> : {{ book.end }}
               </div>
             </div>
           <div class="collapsible-body">
