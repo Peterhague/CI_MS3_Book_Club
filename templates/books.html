@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for book in books %}
-        {{ book.book_title }}<br>
-        {{ book.author_first }}<br>
-        {{ book.author_last }}<br>
-        {{ book.date }}<br>
-        {{ book.start }}<br>
-        {{ book.end }}<br>
-    {% endfor %}
-
     <ul class="collapsible">
         {% for book in books %}
         <li>
@@ -22,7 +13,7 @@
                 {% endif %}
               </div>
               <div class="col s9">
-                <strong>{{ book.book_title }}</strong> : {{ book.end }}
+                <strong>{{ book.book_title }}</strong> : {{ book.author_last }}
               </div>
             </div>
           <div class="collapsible-body">
