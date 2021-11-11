@@ -99,6 +99,9 @@ def add_book():
         book = {
             "genre_name": request.form.get("genre_name"),
             "book_title": request.form.get("book_title"),
+            "author_first": request.form.get("author_first"),            
+            "author_last": request.form.get("author_last"),
+            "date": request.form.get("date"),
             "book_description": request.form.get("book_description"),
             "start_date": request.form.get("start_date"),
             "created_by": session["user"]
