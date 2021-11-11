@@ -145,8 +145,8 @@ def join_club(book_id):
         joiner = {
             "members": session["user"]
         }
-    mongo.db.books.update({"_id": ObjectId(book_id)}, joiner)
-    flash("You have joined this book club")
+        mongo.db.books.update({"_id": ObjectId(book_id)}, joiner)
+        flash("You have joined this book club")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     genres = mongo.db.genres.find().sort("genre_name", 1)
