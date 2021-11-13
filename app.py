@@ -36,7 +36,7 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
             "clubs_joined": []
         }
         mongo.db.users.insert_one(register)
