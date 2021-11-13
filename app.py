@@ -154,7 +154,7 @@ def join_club(book_id):
 
 
 @app.route("/clubs_joined/<book_id>", methods=["GET", "POST"])
-def join_club(book_id):
+def clubs_joined(book_id):
     flash("You have joined this book club")
     return redirect(url_for("see_books"))
 
