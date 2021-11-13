@@ -148,6 +148,10 @@ def join_club(book_id):
         member = {"genre_name": "JOINED"}
         mongo.db.books.update({"_id": ObjectId(book_id)}, member)
         flash("You have joined this book club")
+
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    flash("You have joined this book club")
     return redirect(url_for("see_books"))
 
 
