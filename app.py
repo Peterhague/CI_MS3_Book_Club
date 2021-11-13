@@ -37,6 +37,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
+            "clubs_joined" : []
         }
         mongo.db.users.insert_one(register)
 
@@ -146,16 +147,13 @@ def delete_book(book_id):
 @app.route("/join_club/<book_id>", methods=["GET", "POST"])
 def join_club(book_id):
     member = { "$addToSet": {"members": session["user"]}}
+    club = { "$addToSet": {"clubs_joined": book_id}}
     mongo.db.books.update({"_id": ObjectId(book_id)}, member)
+    mongo.db.users.update({session["user"]}, club)
+    flash("You have joined this book club")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     genres = mongo.db.genres.find().sort("genre_name", 1)
-    return redirect(url_for("see_books"))
-
-
-@app.route("/clubs_joined/<book_id>", methods=["GET", "POST"])
-def clubs_joined(book_id):
-    flash("You have joined this book club")
     return redirect(url_for("see_books"))
 
 
