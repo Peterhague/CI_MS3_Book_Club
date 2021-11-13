@@ -144,7 +144,7 @@ def delete_book(book_id):
 
 @app.route("/join_club/<book_id>", methods=["GET", "POST"])
 def join_club(book_id):
-    member = {"genre_name": "JOINED"}
+    member = "JOINED"
     mongo.db.books.genre_name.update({"_id": ObjectId(book_id)}, member)
     flash("You have joined this book club")
 
