@@ -25,9 +25,9 @@
               <p><em>{{ book.book_description }}</em></p>
               <p>
                 <strong>People in this group:</strong>
-                {% for members in book.members %}
-                  <span><em>{{ members }}</em></span>
-                  {% if members[6] %}
+                {% for member in book.members %}
+                  <span><em>{{ member }}</em></span>
+                  {% if member.last %}
                     <span><em>{{ ", " }}</em></span>
                   {% endif %}
                 {% endfor %}
