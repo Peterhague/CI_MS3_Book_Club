@@ -87,6 +87,12 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/profiles_other/<username>", methods=["GET", "POST"])
+def profiles_other(username):
+    # grab the session user's username from the db
+    return render_template("profiles_other.html", username=username)
+
+
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
