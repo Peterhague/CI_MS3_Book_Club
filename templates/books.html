@@ -28,7 +28,7 @@
                 {% for members in book.members %}
                   <span><em>{{ members }} </em></span>
                   {% if not members.last %}
-                    <span><em>{{ ,  }}</em></span>
+                    <span><em>{{ ", " }}</em></span>
                   {% endif %}
                 {% endfor %}
               </p>
