@@ -91,7 +91,7 @@ def profile(username):
 def profiles_other(username):
     # grab the session user's username from the db
     books = list(mongo.db.books.find())
-    return render_template("profiles_other.html", username=username)
+    return render_template("profiles_other.html", username=username, books=books)
 
 
 @app.route("/logout")
