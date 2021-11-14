@@ -117,6 +117,7 @@ def add_book():
             "members": [session["user"]]
         }
         mongo.db.books.insert_one(book)
+        mongo.db.users.update({"_id": ObjectId(user_id)}, club)
         flash("Book Successfully Added")
         return redirect(url_for("see_books")) 
 
