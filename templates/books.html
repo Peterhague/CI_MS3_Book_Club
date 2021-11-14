@@ -26,7 +26,7 @@
               <p>
                 <strong>People in this group:</strong>
                 {% for members in book.members %}
-                  <span><em>{{ members ", " if not loop.last else "" }} </em></span>
+                  <span><em>{{ members }}, </em></span>
                 {% endfor %}
               </p>
           </div>
