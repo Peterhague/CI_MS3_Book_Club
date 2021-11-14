@@ -11,19 +11,16 @@
         </div>
     </div>
 
-    <ul class="collapsible">
+    <ul>
         {% for book in books %}
         <li>
-            <div class="collapsible-header">
-              <div class="col s3">
-                <i class="fas fa-caret-down"></i>
-              </div>
+            <div>
               <div class="col s9">
                 <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joins now</a>
                 <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
               </div>
             </div>
-          <div class="collapsible-body">
+          <div>
               <p>First Published: {{ book.date }}</p>
               <p>Club Start Date: {{ book.start_date }}</p>
               <p>Club End Date: {{ book.end }}</p>
