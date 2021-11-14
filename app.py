@@ -104,7 +104,7 @@ def logout():
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     if request.method == "POST":
-        club = { "$addToSet": {"clubs_created": book_id}}
+        club = { "$addToSet": {"clubs_created": request.form.get("book_title")}}
         book = {
             "genre_name": request.form.get("genre_name"),
             "book_title": request.form.get("book_title"),
