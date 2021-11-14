@@ -90,6 +90,7 @@ def profile(username):
 @app.route("/profiles_other/<username>", methods=["GET", "POST"])
 def profiles_other(username):
     # grab the session user's username from the db
+    books = list(mongo.db.books.find())
     return render_template("profiles_other.html", username=username)
 
 
