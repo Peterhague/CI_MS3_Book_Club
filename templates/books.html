@@ -13,7 +13,7 @@
                 {% endif %}
               </div>
               <div class="col s9">
-                <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joinp now</a>
+                <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joinr now</a>
                 <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
               </div>
             </div>
@@ -23,8 +23,8 @@
               <p>Club End Date: {{ book.end }}</p>
               <p><em>Book club started by: {{ book.created_by }}</em></p>
               <p><em>{{ book.book_description }}</em></p>
-              {% for book.member in books.members %}
-                <p><em>{{ book.members }}</em></p>
+              {% for member in books.members %}
+                <p><em>{{ member }}</em></p>
               {% endfor %}
           </div>
         </li>
