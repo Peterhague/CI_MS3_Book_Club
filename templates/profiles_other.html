@@ -13,7 +13,7 @@
 
     <ul class="collapsible">
         {% for book in books %}
-        {% if {{ username }} in book.members %}
+        {% if username in book.members %}
             <li>
                 <div class="collapsible-header">
                 <div class="col s3">
