@@ -27,7 +27,7 @@
                 <strong>People in this group:</strong>
                 {% for member in book.members %}
                   <span><em>{{ member }}</em></span>
-                  {% if member =! book.members[-1] %}
+                  {% if member == book.members[-1] %}
                     <span><em>{{ ", " }}</em></span>
                   {% endif %}
                 {% endfor %}
