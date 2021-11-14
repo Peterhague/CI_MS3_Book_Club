@@ -15,13 +15,13 @@
         <div class="col s6">
             <ul class="collapsible">
                 {% for book in books %}
-                {% if username in book.created_by %}
+                {% if username in book.members %}
                     <li>
                         <div class="collapsible-header">
-                        <div class="col s3">
+                        <div class="col s1">
                             <i class="fas fa-caret-down"></i>
                         </div>
-                        <div class="col s9">
+                        <div class="col s11">
                             <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joins now</a>
                             <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
                         </div>
@@ -52,13 +52,13 @@
         <div class="col s6">
             <ul class="collapsible">
                 {% for book in books %}
-                {% if username in book.members %}
+                {% if username in book.created_by %}
                     <li>
                         <div class="collapsible-header">
-                        <div class="col s3">
+                        <div class="col s1">
                             <i class="fas fa-caret-down"></i>
                         </div>
-                        <div class="col s9">
+                        <div class="col s911>
                             <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joins now</a>
                             <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
                         </div>
