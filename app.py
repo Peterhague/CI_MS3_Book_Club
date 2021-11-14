@@ -160,7 +160,7 @@ def delete_book(book_id):
 def join_club(book_id):
     member = { "$addToSet": {"members": session["user"]}}
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    club = { "$addToSet": {"clubs_joined": book.book_title}}    
+    club = { "$addToSet": {"clubs_joined": book[book_title]}}    
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     mongo.db.books.update({"_id": ObjectId(book_id)}, member)
     mongo.db.users.update({"_id": ObjectId(user_id)}, club)
