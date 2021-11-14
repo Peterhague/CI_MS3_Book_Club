@@ -148,7 +148,7 @@ def delete_book(book_id):
 def join_club(book_id):
     member = { "$addToSet": {"members": session["user"]}}
     club = { "$addToSet": {"clubs_joined": book_id}}
-    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+    user_id = mongo.db.users.find_one({"username": session["user"]})["username"]
     mongo.db.books.update({"_id": ObjectId(book_id)}, member)
     mongo.db.users.update({"_id": ObjectId(user_id)}, club)
     flash("You have joined this book club")
