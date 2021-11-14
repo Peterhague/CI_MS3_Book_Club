@@ -144,9 +144,10 @@ def delete_book(book_id):
     return redirect(url_for("see_books"))
 
 
-@app.route("/join_club/<book_id>", methods=["GET", "POST"])
-def join_club(book_id):
+@app.route("/join_club/<book>", methods=["GET", "POST"])
+def join_club(book):
     member = { "$addToSet": {"members": session["user"]}}
+    book_id = book._id
     club = { "$addToSet": {"clubs_joined": book_id}}
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     mongo.db.books.update({"_id": ObjectId(book_id)}, member)
