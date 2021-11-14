@@ -150,7 +150,7 @@ def join_club(book_id):
     club = { "$addToSet": {"clubs_joined": book_id}}
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     mongo.db.books.update({"_id": ObjectId(book_id)}, member)
-    mongo.db.users.update({"_id": ObjectId(user_id)}, clubName)
+    mongo.db.users.update({"_id": ObjectId(user_id)}, club)
     flash("You have joined this book club")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
