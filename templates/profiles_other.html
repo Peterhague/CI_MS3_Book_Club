@@ -51,6 +51,7 @@
         </div>
         <div class="col s6">
             <ul class="collapsible">
+                {% if username in books.created_by %}
                 {% for book in books %}
                 {% if username in book.created_by %}
                     <li>
@@ -84,6 +85,7 @@
                     </li>
                 {% endif %}
                 {% endfor %}
+                {% endif %}
               </ul>
         </div>
     </div>
