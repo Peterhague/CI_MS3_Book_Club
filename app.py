@@ -104,7 +104,8 @@ def logout():
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     if request.method == "POST":
-        club = { "$addToSet": {"clubs_created": request.form.get("book_title")}}    
+        clubs_joined = { "$addToSet": {"clubs_joined": request.form.get("book_title")}}  
+        clubs_created = { "$addToSet": {"clubs_created": request.form.get("book_title")}}    
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         book = {
             "genre_name": request.form.get("genre_name"),
@@ -118,7 +119,8 @@ def add_book():
             "members": [session["user"]]
         }
         mongo.db.books.insert_one(book)
-        mongo.db.users.update({"_id": ObjectId(user_id)}, club)
+        mongo.db.users.update({"_id": ObjectId(user_id)}, clubs_created)
+        mongo.db.users.update({"_id": ObjectId(user_id)}, clubs_joined)
         flash("Book Successfully Added")
         return redirect(url_for("see_books")) 
 
