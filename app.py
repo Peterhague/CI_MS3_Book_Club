@@ -90,7 +90,8 @@ def profile(username):
 @app.route("/profiles_other/<username>", methods=["GET", "POST"])
 def profiles_other(username):
     books = list(mongo.db.books.find())
-    return render_template("profiles_other.html", username=username, books=books)
+    this_user = mongo.db.users.find_one({"username": username})
+    return render_template("profiles_other.html", username=username, books=books, this_user=this_user)
 
 
 @app.route("/logout")
