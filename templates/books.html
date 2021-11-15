@@ -13,7 +13,7 @@
                 {% endif %}
               </div>
               <div class="col s9">
-                {% if session.user|lower in book.members|lower == false %}
+                {% if session.user|lower not in book.members|lower %}
                 <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joint now</a>
                 {% endif %}
                 <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
