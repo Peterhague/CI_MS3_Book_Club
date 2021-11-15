@@ -203,8 +203,6 @@ def add_comment(book_id):
         mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
         mongo.db.users.update({"_id": ObjectId(user_id)}, comment)
 
-    return redirect(url_for("club_home"))
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
