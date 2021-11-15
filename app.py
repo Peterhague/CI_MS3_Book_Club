@@ -195,7 +195,7 @@ def go_to_club(book_id):
     return render_template("club_home.html", book_id=book_id, book=book)
 
 
-@app.route("/add_comment", methods=["GET", "POST"])
+@app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
     if request.method == "POST":
         comment = { "$addToSet": {"comments": request.form.get("comment")}} 
