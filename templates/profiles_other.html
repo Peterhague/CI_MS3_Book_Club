@@ -15,7 +15,7 @@
         <!-- accordion for book clubs that the user is a member of -->
         <div class="col s6">
             <ul class="collapsible">
-                {% if user.clubs_joined.count() != 0 %}
+                <!-- {% if user.clubs_joined.count() != 0 %} -->
                 {% for book in books %}
                 {% if username in book.members %}
                     <li>
@@ -49,7 +49,7 @@
                     </li>
                 {% endif %}
                 {% endfor %}
-                {% endif %}
+                <!-- {% endif %} -->
               </ul>
         </div>
         <!-- accordion for book clubs created by the user -->
