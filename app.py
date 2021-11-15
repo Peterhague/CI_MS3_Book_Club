@@ -173,6 +173,22 @@ def join_club(book_id):
     return redirect(url_for("see_books"))
 
 
+@app.route("/leave_club/<book_id>", methods=["GET", "POST"])
+def leave_club(book_id):
+    remove_member = { "$pull": {"members": session["user"]}}
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    remove_club = { "$pull": {"clubs_joined": book["book_title"]}}    
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+    mongo.db.books.update({"_id": ObjectId(book_id)}, remove_member)
+    mongo.db.users.update({"_id": ObjectId(user_id)}, remove_club)
+    flash("You have left this book club")
+
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return redirect(url_for("see_books"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

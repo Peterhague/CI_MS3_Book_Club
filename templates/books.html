@@ -16,7 +16,7 @@
                 {% if session.user|lower not in book.members|lower %}
                 <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Join club</a>
                 {% else %}
-                <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Leave club</a>
+                <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Leave club</a>
                 {% endif %}
                 <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
               </div>
