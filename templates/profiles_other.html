@@ -53,6 +53,7 @@
         </div>
         {% endif %}
         <!-- accordion for book clubs created by the user -->
+        {% if this_user.clubs_joined|length > 0 %}
         <div class="col s6">
             <ul class="collapsible">
                 {% for book in books %}
@@ -90,6 +91,7 @@
                 {% endfor %}
               </ul>
         </div>
+        {% endif %}
     </div>
 
 
