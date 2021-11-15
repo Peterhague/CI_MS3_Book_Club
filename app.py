@@ -90,8 +90,7 @@ def profile(username):
 @app.route("/profiles_other/<username>", methods=["GET", "POST"])
 def profiles_other(username):
     books = list(mongo.db.books.find())
-    user = session["user"]
-    return render_template("profiles_other.html", username=username, books=books, user=user)
+    return render_template("profiles_other.html", username=username, books=books)
 
 
 @app.route("/logout")
