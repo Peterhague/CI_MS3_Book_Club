@@ -189,6 +189,13 @@ def leave_club(book_id):
     return redirect(url_for("see_books"))
 
 
+@app.route("/go_to_club/<book_id>", methods=["GET", "POST"])
+def go_to_club(username):
+    books = list(mongo.db.books.find())
+    this_user = mongo.db.users.find_one({"username": username})
+    return render_template("club_home.html", username=username, books=books, this_user=this_user)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
