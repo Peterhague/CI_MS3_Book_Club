@@ -51,7 +51,7 @@
             </ul>
         </div>
         <!-- accordion for book clubs created by the user -->
-        {% if username.clubs_created|length > 0 %}
+        {% if username.clubs_created|length == 1 %}
         <div class="col s6">
             <ul class="collapsible">
                 {% for book in books %}
