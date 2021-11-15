@@ -203,6 +203,8 @@ def add_comment(book_id):
         mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
         mongo.db.users.update({"_id": ObjectId(user_id)}, comment)
 
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     return redirect(url_for("see_books"))
 
 
