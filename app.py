@@ -79,7 +79,7 @@ def login():
 def profile(username):
     # grab the session user's username from the db
     this_user = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        {"username": session["user"]})
     books = list(mongo.db.books.find())
 
     if session["user"]:
