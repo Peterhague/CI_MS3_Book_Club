@@ -11,4 +11,87 @@
         </div>
     </div>
 
+    <div class="row">
+        <!-- accordion for book clubs that the user is a member of -->
+        {% if username.clubs_joined|length > 0 %}
+        <div class="col s6">
+            <ul class="collapsible">
+                {% for book in books %}
+                {% if username in book.members %}
+                    <li>
+                        <div class="collapsible-header">
+                        <div class="col s1">
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+                        <div class="col s11">
+                            <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joins now</a>
+                            <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
+                        </div>
+                        </div>
+                    <div class="collapsible-body">
+                        <p>First Published: {{ book.date }}</p>
+                        <p>Club Start Date: {{ book.start_date }}</p>
+                        <p>Club End Date: {{ book.end }}</p>
+                        <p><em>Book club started by: {{ book.created_by }}</em></p>
+                        <p><em>{{ book.book_description }}</em></p>
+                        <p>
+                            <strong>People in this group:</strong>
+                            {% for member in book.members %}
+                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
+                            {% if member == book.members[-1] %}
+                                <span><em>{{ "" }}</em></span>
+                            {% else %} 
+                                <span><em>{{ ", " }}</em></span>
+                            {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <!-- accordion for book clubs created by the user -->
+        {% if username.clubs_created|length > 0 %}
+        <div class="col s6">
+            <ul class="collapsible">
+                {% for book in books %}
+                {% if username in book.created_by %}
+                    <li>
+                        <div class="collapsible-header">
+                        <div class="col s1">
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+                        <div class="col s11">
+                            <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joins now</a>
+                            <strong>{{ book.book_title }}</strong> by {{ book.author_first }} {{ book.author_last }}
+                        </div>
+                        </div>
+                    <div class="collapsible-body">
+                        <p>First Published: {{ book.date }}</p>
+                        <p>Club Start Date: {{ book.start_date }}</p>
+                        <p>Club End Date: {{ book.end }}</p>
+                        <p><em>Book club started by: {{ book.created_by }}</em></p>
+                        <p><em>{{ book.book_description }}</em></p>
+                        <p>
+                            <strong>People in this group:</strong>
+                            {% for member in book.members %}
+                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
+                            {% if member == book.members[-1] %}
+                                <span><em>{{ "" }}</em></span>
+                            {% else %} 
+                                <span><em>{{ ", " }}</em></span>
+                            {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                    </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+        </div>
+        {% endif %}
+    </div>
+
 {% endblock %}
