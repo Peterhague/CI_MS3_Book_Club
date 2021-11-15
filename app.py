@@ -190,9 +190,9 @@ def leave_club(book_id):
 
 
 @app.route("/go_to_club/<book_id>", methods=["GET", "POST"])
-    def go_to_club(book_id):
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)}
-        return render_template("club_home.html", book_id=book_id, book=book)
+def go_to_club(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)}
+    return render_template("club_home.html", book_id=book_id, book=book)
 
 
 if __name__ == "__main__":
