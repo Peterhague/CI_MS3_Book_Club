@@ -196,7 +196,7 @@ def go_to_club(book_id):
 
 
 @app.route("/add_comment/<book_id>", methods["GET", "POST"])
-def add_comment():
+def add_comment(book_id):
     if request.method == "POST":
         comment = { "$addToSet": {"comments": request.form.get("comment")}}   
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
