@@ -1,7 +1,33 @@
 
 
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('add_comment'), book_id=book.id}}"> 
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="fas fa-align-left prefix"></i>
+              <textarea id="comment" name="comment" minlength="1"
+              maxlength="200" class="materialize-textarea validate" required></textarea>
+              <label for="comment">Comment</label>
+            </div>
+          </div>
+            <!-- submit button -->
+            <div class="row">
+              <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                  Add comment <i class="fas fa-plus-square right"></i>
+                </button>
+              </div>
+            </div>
+        </form>
+    </div>
 
-@app.route("/go_to_club/<book_id>", methods=["GET", "POST"])
-    def go_to_club(book_id):
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)}
-        return render_template("club_home.html", book_id=book_id, book=book)
+
+    @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
+    def add_comment(book_id):
+        if request.method == "POST":
+            comment = { "$addToSet": {"comments": request.form.get("comment")}} 
+            user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+            mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
+            mongo.db.users.update({"_id": ObjectId(user_id)}, comment)
+    
+        return redirect(url_for("club_home"))

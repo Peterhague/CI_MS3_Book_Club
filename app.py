@@ -192,18 +192,7 @@ def leave_club(book_id):
 @app.route("/go_to_club/<book_id>", methods=["GET", "POST"])
 def go_to_club(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    return render_template("club_home.html", book_id=book_id)
-
-
-@app.route("/add_comment/<book_id>", methods=["GET", "POST"])
-def add_comment(book_id):
-    if request.method == "POST":
-        comment = { "$addToSet": {"comments": request.form.get("comment")}} 
-        user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-        mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
-        mongo.db.users.update({"_id": ObjectId(user_id)}, comment)
-
-    return redirect(url_for("club_home"))
+    return render_template("club_home.html", book_id=book_id, book=book)
 
 
 if __name__ == "__main__":
