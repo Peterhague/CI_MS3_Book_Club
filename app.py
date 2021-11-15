@@ -192,7 +192,7 @@ def leave_club(book_id):
 @app.route("/go_to_club/<book_id>", methods=["GET", "POST"])
 def go_to_club(book_id):
     books = list(mongo.db.books.find())
-    return render_template("club_home.html", books=books,)
+    return render_template("club_home.html", book_id=book_id, books=books,)
 
 
 if __name__ == "__main__":
