@@ -5,7 +5,7 @@
         <div class="col s12 m8 offset-m2">
             <div class="card-panel">
                 <h3 class="center-align light-blue-text darken-4">
-                    {{ username[clubs_created] }}'s Profile
+                    {{ username }}'s Profile
                 </h3>
             </div>
         </div>
@@ -51,7 +51,7 @@
             </ul>
         </div>
         <!-- accordion for book clubs created by the user -->
-        {% if username.clubs_created|length == 1 %}
+        {% if this_user.clubs_created|length > 0 %}
         <div class="col s6">
             <ul class="collapsible">
                 {% for book in books %}
