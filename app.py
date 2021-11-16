@@ -205,7 +205,7 @@ def add_comment(book_id):
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    return redirect(url_for("go_to_club"))
+    return render_template("club_home.html", book_id=book_id, book=book)
 
 
 if __name__ == "__main__":
