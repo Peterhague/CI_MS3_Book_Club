@@ -201,7 +201,7 @@ def add_comment(book_id):
         book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         comment = { "$addToSet": {"comments": request.form.get("comment")}}
         comments_by = { "$addToSet": {"comments_by" : session["user"]}}
-        commented_on = { "$addToSet": {"commented_on" : book.book_title}}
+        commented_on = { "$addToSet": {"commented_on" : book[book_title]}}
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
         mongo.db.books.update({"_id": ObjectId(book_id)}, comments_by)
