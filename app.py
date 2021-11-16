@@ -198,6 +198,7 @@ def go_to_club(book_id):
 @app.route("/add_comment/<book_id>", methods=["GET", "POST"])
 def add_comment(book_id):
     if request.method == "POST":
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         comment = { "$addToSet": {"comments": request.form.get("comment")}}
         comments_by = { "$addToSet": {"comments_by" : session["user"]}}
         commented_on = { "$addToSet": {"commented_on" : book.book_title}}
@@ -207,7 +208,6 @@ def add_comment(book_id):
         mongo.db.users.update({"_id": ObjectId(user_id)}, comment)
         mongo.db.users.update({"_id": ObjectId(user_id)}, commented_on)
 
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     return render_template("club_home.html", book_id=book_id, book=book)
 
