@@ -199,9 +199,13 @@ def go_to_club(book_id):
 def add_comment(book_id):
     if request.method == "POST":
         comment = { "$addToSet": {"comments": request.form.get("comment")}}
+        comments_by = { "$addToSet": {"comments_by" : session["user"]}}
+        commented_on = { "$addToSet": {"commented_on" : book.book_title}}
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
+        mongo.db.books.update({"_id": ObjectId(book_id)}, comments_by)
         mongo.db.users.update({"_id": ObjectId(user_id)}, comment)
+        mongo.db.users.update({"_id": ObjectId(user_id)}, commented_on)
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
