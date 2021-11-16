@@ -83,8 +83,8 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/edit_details/<this_user_id>", methods=["GET", "POST"])
-def edit_details(this_user_id):
+@app.route("/edit_details/<this_user>", methods=["GET", "POST"])
+def edit_details(this_user):
     if request.method == "POST":
         edit_user = {
             "first_name": request.form.get("first_name"),
@@ -92,10 +92,9 @@ def edit_details(this_user_id):
             "location": request.form.get("location"),
             "username": request.form.get("username")
         }
-        mongo.db.users.update({"_id": ObjectId(this_user_id)}, edit_user)
+        mongo.db.users.update({"_id": ObjectId(this_user._id)}, edit_user)
         flash("Account Successfully Updated")
 
-    this_user = mongo.db.users.find_one({"_id": ObjectId(this_user_id)})
     return render_template("edit_details.html", this_user=this_user)
 
 
