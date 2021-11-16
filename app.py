@@ -83,6 +83,23 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/edit_details/<this_user>")
+def edit_details(this_user):
+    if request.method == "POST":
+        submit = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "location": request.form.get("location"),
+            "username": request.form.get("username")
+        }
+        mongo.db.users.update({"_id": ObjectId(this_user._id)}, submit)
+        flash("Account Successfully Updated")
+
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    return render_template("edit_details.html", this_user=this_user)
+
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from the db
