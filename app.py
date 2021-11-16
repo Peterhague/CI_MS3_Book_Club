@@ -83,8 +83,8 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/edit_details/<this_user>")
-def edit_details(this_user):
+@app.route("/edit_details/<this_user_id>")
+def edit_details(this_user_id):
     if request.method == "POST":
         submit = {
             "first_name": request.form.get("first_name"),
