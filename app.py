@@ -87,13 +87,13 @@ def login():
 def edit_details(this_user):
     if request.method == "POST":
         this_record = mongo.db.users.find_one({"username": this_user})
-        password = mongo.db.users.find_one({"username": this_user})["_id"]
+        nominal = mongo.db.users.find_one({"username": session["user"]})["_id"]
         edit_user = {
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "location": request.form.get("location"),
             "username": request.form.get("username"),
-            "password": password
+            "password": nominal
         }
         mongo.db.users.update({"_id": ObjectId(this_user._id)}, edit_user)
         flash("Account Successfully Updated")
