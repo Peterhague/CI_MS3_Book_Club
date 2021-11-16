@@ -83,7 +83,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/edit_details/<this_user_id>")
+@app.route("/edit_details/<this_user_id>", methods=["GET", "POST"])
 def edit_details(this_user_id):
     if request.method == "POST":
         submit = {
@@ -97,7 +97,6 @@ def edit_details(this_user_id):
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     return render_template("edit_details.html", this_user=this_user)
-
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
