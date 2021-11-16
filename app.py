@@ -87,7 +87,7 @@ def login():
 def edit_details(this_user):
     if request.method == "POST":
         this_record = mongo.db.users.find_one({"username": this_user})
-        password = mongo.db.users.find_one({"username": this_user})[password]
+        password = mongo.db.users.find_one({"username": this_user})["password"]
         edit_user = {
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
