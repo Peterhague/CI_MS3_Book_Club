@@ -12,6 +12,15 @@
     </div>
 
     <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <div class="col s6">field</div>
+                <div class="col s6">value</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <!-- accordion for book clubs that the user is a member of -->
         {% if this_user.clubs_joined|length > 0 %}
         <div class="col s6">
