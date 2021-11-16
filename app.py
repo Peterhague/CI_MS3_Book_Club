@@ -95,7 +95,7 @@ def edit_details(this_user):
             "username": request.form.get("username"),
             "password": nominal
         }
-        mongo.db.users.update({"_id": ObjectId(this_user._id)}, edit_user)
+        mongo.db.users.update({"_id": ObjectId(nominal)}, edit_user)
         flash("Account Successfully Updated")
 
     return render_template("edit_details.html", this_user=this_user)
