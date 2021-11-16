@@ -12,6 +12,14 @@
     </div>
 
     <div class="row">
+      <div class="col s12">
+        {% for comment in book.comments %}
+          <p>{ comment }</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('add_comment', book_id=book._id) }}"> 
           <div class="row">
             <div class="input-field col s12">
