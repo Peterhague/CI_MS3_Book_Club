@@ -92,7 +92,7 @@ def edit_details(this_user):
             "last_name": request.form.get("last_name"),
             "location": request.form.get("location"),
             "username": request.form.get("username"),
-            "password": this_record.password
+            "password": this_record[password]
         }
         mongo.db.users.update({"_id": ObjectId(this_user._id)}, edit_user)
         flash("Account Successfully Updated")
