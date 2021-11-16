@@ -94,8 +94,7 @@ def edit_details(this_user_id):
         }
         mongo.db.users.update({"_id": ObjectId(this_user_id)}, submit)
         flash("Account Successfully Updated")
-
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        
     return render_template("edit_details.html", this_user_id)
 
 
