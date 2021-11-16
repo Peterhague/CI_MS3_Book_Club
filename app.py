@@ -86,12 +86,13 @@ def login():
 @app.route("/edit_details/<this_user>", methods=["GET", "POST"])
 def edit_details(this_user):
     if request.method == "POST":
+        this_record = mongo.db.users.find_one({"username": this_user})
         edit_user = {
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "location": request.form.get("location"),
             "username": request.form.get("username"),
-            "password": this_user.password
+            "password": this_record.password
         }
         mongo.db.users.update({"_id": ObjectId(this_user._id)}, edit_user)
         flash("Account Successfully Updated")
