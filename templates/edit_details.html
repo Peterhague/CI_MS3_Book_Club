@@ -18,14 +18,14 @@
                     <div class="input-field col s12">
                         <i class="fas fa-user-plus prefix"></i>
                         <input value="{{ this_user_id.last_name }}" id="last_name" name="last_name" type="text" minlength="1"
-                         maxlength="30" class="validate" required>
+                         maxlength="30" pattern="^[a-zA-Z0-9]${5,15}" class="validate" required>
                         <label for="last_name">Last Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-user-plus prefix"></i>
-                        <input value="{{ this_user_id.location }}" id="location" name="location" type="text" minlength="2"
+                        <input value="{{ this_user.location }}" id="location" name="location" type="text" minlength="2"
                          maxlength="30" pattern="^[a-zA-Z0-9]${5,15}" class="validate" required>
                         <label for="location">Location</label>
                     </div>
