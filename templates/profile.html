@@ -44,9 +44,9 @@
                             {% if session.user|lower not in book.members|lower %}
                             <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-plus"></i></a>
                             {% else %}
-                            <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-minus"></i>></a>
+                            <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-minus"></i></a>
                             {% endif %}
-                            <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Go to club</a>
+                            <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-arrow-right"></i></a>
                             <strong>{{ book.book_title.title() }}</strong> by {{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}
                         </div>
                         </div>
