@@ -25,14 +25,12 @@
             <div class="collapsible-header">
               <div class="col s3">
                 {% if session.user|lower == book.created_by|lower %}
-                  <i class="fas fa-caret-down"></i>
                   <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-small green accent-4">Delete</a>
                   <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small light-blue lighten-1">Edit</a>
                 {% endif %}
               </div>
               <div class="col s9">
                 {% if session.user|lower not in book.members|lower %}
-                  <i class="fas fa-caret-down"></i>
                   <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Join club</a>
                 {% else %}
                   <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Leave club</a>
