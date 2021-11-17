@@ -53,23 +53,11 @@
             </div>
           </li>
       </ul>
+      <div class="row">
+          <a href="{{ url_for('edit_details', this_user=this_user) }}" class="btn-small light-blue lighten-1">Edit Details</a>
+          <a href="{{ url_for('close_account', this_user=this_user) }}" class="btn-small light-blue lighten-1">Close Account</a>
+      </div>     
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card-panel">
-                <div class="col s6">First Name</div>
-                <div class="col s6"></div>
-                <div class="col s6">Last Name</div>
-                <div class="col s6">{{this_user.last_name}}</div>
-                <div class="col s6">Location</div>
-                <div class="col s6">{{this_user.location}}</div>
-                <div class="col s6">Username</div>
-                <div class="col s6">{{this_user.username}}</div>
-            </div>            
-        </div>        
-        <a href="{{ url_for('edit_details', this_user=this_user) }}" class="btn-small light-blue lighten-1">Edit Details</a>
-        <a href="{{ url_for('close_account', this_user=this_user) }}" class="btn-small light-blue lighten-1">Close Account</a>
-    </div>
 
     <div class="row">
         <!-- accordion for book clubs that the user is a member of -->
