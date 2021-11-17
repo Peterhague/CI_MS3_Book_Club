@@ -99,7 +99,7 @@ def edit_details(this_user):
         mongo.db.users.update({"_id": ObjectId(user_id)}, edit_user)
         flash("Account Successfully Updated")
 
-    return render_template("edit_details.html", this_user=this_user)
+    return render_template("edit_details.html", this_user=this_record)
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
