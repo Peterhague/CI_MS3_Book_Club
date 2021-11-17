@@ -22,7 +22,7 @@
     <ul class="collapsible">
         {% for book in books %}
         <li>
-            <div class="collapsible-header">
+            <div class="row collapsible-header">
               <div class="col s3">
                 {% if session.user|lower == book.created_by|lower %}
                   <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-small green accent-4">Delete</a>
