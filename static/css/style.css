@@ -5,8 +5,3 @@
 .flashes h4 {
     line-height: 2;
 }
-
-.links_hidden {
-    position: relative;
-    z-index: -1;
-}
