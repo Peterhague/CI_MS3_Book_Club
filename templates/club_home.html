@@ -47,6 +47,11 @@
             </div>
         </form>
     </div>
+    {% else %}
+    <div class="row center-align">
+      Want to add to the discussion? Join this club<br>
+      <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-plus"></i></a>
+    </div>
     {% endif %}
 
 {% endblock %}
