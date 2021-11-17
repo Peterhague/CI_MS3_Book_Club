@@ -9,3 +9,8 @@
 .center-icons {
     width: inherit !important;
 }
+
+.book-titles {
+    font-size: 1.25em;
+    font-weight: 700;
+}
