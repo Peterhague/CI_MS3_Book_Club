@@ -12,5 +12,8 @@
 
 .book-titles {
     font-size: 1.25em;
-    font-weight: 700;
+}
+
+.extra-strong {
+    font-weight: 700 !important;
 }
