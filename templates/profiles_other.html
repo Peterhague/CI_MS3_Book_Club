@@ -20,13 +20,20 @@
                 {% if username in book.members %}
                     <li>
                         <div class="collapsible-header">
-                        <div class="col s1">
-                            <i class="fas fa-caret-down"></i>
-                        </div>
-                        <div class="col s11">
-                            <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Joins now</a>
-                            <strong>{{ book.book_title.title() }}</strong> by {{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}
-                        </div>
+                            <div class="col s1">
+                                <i class="fas fa-caret-down"></i>
+                            </div>
+                            <div class="col s3">
+                                {% if session.user|lower not in book.members|lower %}
+                                <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-plus fa-sm"></i></a>
+                                {% else %}
+                                <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-minus fa-sm"></i></a>
+                                {% endif %}
+                                <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-arrow-right fa-sm"></i></a>
+                            </div>
+                            <div class="col s8">
+                                <strong>{{ book.book_title.title() }}</strong><br>by <em>{{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}</em> 
+                            </div>
                         </div>
                     <div class="collapsible-body">
                         <p>First Published: {{ book.date }}</p>

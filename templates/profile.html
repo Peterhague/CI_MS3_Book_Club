@@ -90,24 +90,24 @@
                                 <strong>{{ book.book_title.title() }}</strong><br>by <em>{{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}</em> 
                             </div>
                         </div>
-                    <div class="collapsible-body">
-                        <p>First Published: {{ book.date }}</p>
-                        <p>Club Start Date: {{ book.start_date }}</p>
-                        <p>Club End Date: {{ book.end }}</p>
-                        <p><em>Book club started by: {{ book.created_by }}</em></p>
-                        <p><em>{{ book.book_description }}</em></p>
-                        <p>
-                            <strong>People in this group:</strong>
-                            {% for member in book.members %}
-                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</a></em></span>
-                            {% if member == book.members[-1] %}
-                                <span><em>{{ "" }}</em></span>
-                            {% else %} 
-                                <span><em>{{ ", " }}</em></span>
-                            {% endif %}
-                            {% endfor %}
-                        </p>
-                    </div>
+                        <div class="collapsible-body">
+                            <p>First Published: {{ book.date }}</p>
+                            <p>Club Start Date: {{ book.start_date }}</p>
+                            <p>Club End Date: {{ book.end }}</p>
+                            <p><em>Book club started by: {{ book.created_by }}</em></p>
+                            <p><em>{{ book.book_description }}</em></p>
+                            <p>
+                                <strong>People in this group:</strong>
+                                {% for member in book.members %}
+                                <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</a></em></span>
+                                {% if member == book.members[-1] %}
+                                    <span><em>{{ "" }}</em></span>
+                                {% else %} 
+                                    <span><em>{{ ", " }}</em></span>
+                                {% endif %}
+                                {% endfor %}
+                            </p>
+                        </div>
                     </li>
                 {% endif %}
                 {% endfor %}
