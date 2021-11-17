@@ -42,22 +42,31 @@
               </div>
             </div>
           <div class="collapsible-body">
-              <p>First Published: {{ book.date }}</p>
-              <p>Club Start Date: {{ book.start_date }}</p>
-              <p>Club End Date: {{ book.end }}</p>
-              <p><em>Book club started by: {{ book.created_by }}</em></p>
-              <p><em>{{ book.book_description }}</em></p>
-              <p>
-                <strong>People in this group:</strong>
-                {% for member in book.members %}
-                  <span><em><a class="links_hidden" href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
-                  {% if member == book.members[-1] %}
-                    <span><em>{{ "" }}</em></span>
-                  {% else %} 
-                    <span><em>{{ ", " }}</em></span>
-                  {% endif %}
-                {% endfor %}
-              </p>
+              <div class="col s3">
+                <p>First Published:</p>
+                <p>Club Start Date:</p>
+                <p>Club End Date:</p>
+                <p><em>Book club started by:</em></p>
+                <p>Summary:</p>
+                <p><strong>People in this group:</strong></p> 
+              </div>
+              <div class="col s9">
+                <p>{{ book.date }}</p>
+                <p>{{ book.start_date }}</p>
+                <p>{{ book.end }}</p>
+                <p><em>{{ book.created_by }}</em></p>
+                <p><em>{{ book.book_description }}</em></p>
+                <p>
+                  {% for member in book.members %}
+                    <span><em><a class="links_hidden" href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
+                    {% if member == book.members[-1] %}
+                      <span><em>{{ "" }}</em></span>
+                    {% else %} 
+                      <span><em>{{ ", " }}</em></span>
+                    {% endif %}
+                  {% endfor %}
+                </p>
+              </div>
           </div>
         </li>
         {% endfor %}
