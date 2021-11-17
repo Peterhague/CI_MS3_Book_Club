@@ -19,7 +19,7 @@
               {{ commenter }}
           </div>
           <div class="col s10">
-              {{ book.comments[commenter] }}
+              {{ book.comments[loop.index] }}
           </div>
         </div>
       </li>
