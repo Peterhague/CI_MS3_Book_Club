@@ -104,12 +104,7 @@ def edit_details(this_user):
     return render_template("edit_details.html", this_record=this_record)
 
 
-@app.route("/close_account/<this_user>")
-def close_account:
-    user_id = mongo.db.users.find_one({"username": session["user"]})["id"]
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("Your Account Has Been Deleted")
-    return redirect(url_for("see_books"))
+
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
