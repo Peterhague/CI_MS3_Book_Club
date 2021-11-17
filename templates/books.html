@@ -32,12 +32,12 @@
               </div>
               <div class="col s9">
                 {% if session.user|lower not in book.members|lower %}
-                <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Join club</a>
+                  <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Join club</a>
                 {% else %}
-                <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Leave club</a>
+                  <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Leave club</a>
                 {% endif %}
-                <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Go to club</a>
-                <strong>{{ book.book_title.title() }}</strong> by {{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}
+                  <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Go to club</a>
+                  <strong>{{ book.book_title.title() }}</strong> by {{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}
               </div>
             </div>
           <div class="collapsible-body">
