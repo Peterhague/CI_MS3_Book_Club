@@ -40,21 +40,6 @@
                   <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Go to club</a>
                   <strong>{{ book.book_title.title() }}</strong> by {{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}
               </div>
-              <div class="row">
-                <div class="col s12">
-                  <p>
-                    <strong>People in this group:</strong>
-                    {% for member in book.members %}
-                      <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
-                      {% if member == book.members[-1] %}
-                        <span><em>{{ "" }}</em></span>
-                      {% else %} 
-                        <span><em>{{ ", " }}</em></span>
-                      {% endif %}
-                    {% endfor %}
-                  </p>
-                </div>
-              </div>
             </div>
           <div class="collapsible-body">
               <p>First Published: {{ book.date }}</p>
