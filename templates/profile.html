@@ -59,7 +59,7 @@
                         <p>
                             <strong>People in this group:</strong>
                             {% for member in book.members %}
-                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
+                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</a></em></span>
                             {% if member == book.members[-1] %}
                                 <span><em>{{ "" }}</em></span>
                             {% else %} 
@@ -99,7 +99,7 @@
                         <p>
                             <strong>People in this group:</strong>
                             {% for member in book.members %}
-                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</em></span>
+                            <span><em><a href="{{ url_for('profiles_other', username=member) }}">{{ member }}</a></em></span>
                             {% if member == book.members[-1] %}
                                 <span><em>{{ "" }}</em></span>
                             {% else %} 
