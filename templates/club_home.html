@@ -13,7 +13,7 @@
 
     <div class="row">
         <ul class="collection">
-          {% for commenter in book.comments %}
+          {% for book.comments|length %}
           <li class="collection-item">
             <div class="col s2">
               {% for commenter in book.comments_by %}
