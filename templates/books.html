@@ -23,19 +23,19 @@
         {% for book in books %}
         <li>
             <div class="row collapsible-header">
-              <div class="col s4">
+              <div class="col s3">
                 {% if session.user|lower not in book.members|lower %}
                   <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-plus"></i></a>
                 {% else %}
                   <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-minus"></i></a>
                 {% endif %}
-                  <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-arrow-right"></i></a>
+                  <a href="{{ url_for('go_to_club', book_id=book._id) }}" class="btn-floating green accent-4"><i class="center-icons fas fa-arrow-right"></i></a>
                 {% if session.user|lower == book.created_by|lower %}
-                  <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating green accent-4"><i class="center-icons fas fa-trash"></i></a>
-                  <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-pencil-alt"></i></a>
+                  <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-floating orange"><i class="center-icons fas fa-pencil-alt"></i></a>
+                  <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating red darken-1"><i class="center-icons fas fa-trash"></i></a>
                 {% endif %}
               </div>
-              <div class="col s7">
+              <div class="col s8">
                   <strong>{{ book.book_title.title() }}</strong> by {{ book.author_first.capitalize() }} {{ book.author_last.capitalize() }}                  
               </div>
               <div class="col s1">                  
