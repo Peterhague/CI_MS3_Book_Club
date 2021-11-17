@@ -10,8 +10,8 @@
               <label for="query">Search books</label>
             </div>
             <div class="col s12 m4">
-              <a href="{{ url_for('see_books') }}" class="red btn text-shadow">Reset</a>
-              <button type="submit" class="light-blue darken-1 btn text-shadow">
+              <a href="{{ url_for('see_books') }}" class="red btn">clear</a>
+              <button type="submit" class="light-blue darken-1 btn">
                 <i class="fas fa-search left"></i> Search
               </button>
             </div>
@@ -46,7 +46,7 @@
                 <p>First Published: {{ book.date }}</p>
                 <p>Club Start Date: {{ book.start_date }}</p>
                 <p>Club End Date: {{ book.end }}</p>
-                <p><em>Book club started by: {{ book.created_by }}</em></p>
+                <p>Book club started by: {{ book.created_by }}</p>
                 <p><em>{{ book.book_description }}</em></p>
                 <p>
                   <strong>People in this group:</strong>
