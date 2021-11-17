@@ -11,57 +11,57 @@
         </div>
     </div>
 
-    <ul class="collection">
-        <li class="collection-item">
-          <div class="row">
-            <div class="col s3"></div>
-            <div class="col s3">
-                First Name
-            </div>
-            <div class="col s3">
-                {{this_user.first_name}}
-            </div>
-            <div class="col s3"></div>
-          </div>
-        </li>
-        <li class="collection-item">
-            <div class="row">
-                <div class="col s3"></div>
-                <div class="col s3">
-                  Last Name
-                </div>
-                <div class="col s3">
-                  {{this_user.last_name}}
-                </div>
-                <div class="col s3"></div>
-            </div>
-          </li>
-          <li class="collection-item">
-            <div class="row">
-                <div class="col s3"></div>
-                <div class="col s3">
-                    Location
-                </div>
-                <div class="col s3">
-                    {{this_user.location}}
-                </div>
-                <div class="col s3"></div>
-            </div>
-          </li>
-          <li class="collection-item">
-            <div class="row">
-                <div class="col s3"></div>
-                <div class="col s3">
-                    Username
-                </div>
-                <div class="col s3">
-                    {{this_user.username}}
-                </div>
-                <div class="col s3"></div>
-            </div>
-          </li>
-      </ul>
-      <div class="row">
+    <div class="row">
+        <div class="col s3"></div>
+        <div class="col s6">
+            <ul class="collection">
+                <li class="collection-item">
+                  <div class="row">
+                    <div class="col s6">
+                        First Name
+                    </div>
+                    <div class="col s6">
+                        {{this_user.first_name}}
+                    </div>
+                  </div>
+                </li>
+                <li class="collection-item">
+                    <div class="row">
+                        <div class="col s6">
+                          Last Name
+                        </div>
+                        <div class="col s6">
+                          {{this_user.last_name}}
+                        </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                        <div class="col s6">
+                            Location
+                        </div>
+                        <div class="col s6">
+                            {{this_user.location}}
+                        </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                        <div class="col s6">
+                            Username
+                        </div>
+                        <div class="col s6">
+                            {{this_user.username}}
+                        </div>
+                    </div>
+                  </li>
+              </ul>
+        </div>
+        <div class="col s3"></div>
+    </div>
+
+    
+      <div class="center_align row">
           <a href="{{ url_for('edit_details', this_user=this_user) }}" class="btn-small light-blue lighten-1">Edit Details</a>
           <a href="{{ url_for('close_account', this_user=this_user) }}" class="btn-small black">Close Account</a>
       </div>     

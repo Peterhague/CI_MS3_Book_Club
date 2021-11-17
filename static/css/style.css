@@ -17,3 +17,7 @@
 .extra-strong {
     font-weight: 700 !important;
 }
+
+.center-align {
+    text-align: center;
+}
