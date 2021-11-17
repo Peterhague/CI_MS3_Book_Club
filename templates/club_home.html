@@ -13,6 +13,7 @@
 
     <div class="row">
         <ul class="collection">
+          {% for commenter in book.comments %}
           <li class="collection-item">
             <div class="col s2">
               {% for commenter in book.comments_by %}
@@ -25,6 +26,7 @@
             {% endfor %}
             </div>
           </li>
+          {% endfor %}
         </ul>
     </div>
 
