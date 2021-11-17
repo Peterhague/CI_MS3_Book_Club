@@ -17,12 +17,12 @@
           <li class="collection-item">
             <div class="col s2">
               {% for commenter in book.comments_by %}
-                {{ commenter }}
+                {{ commenter[items] }}
               {% endfor %}
             </div>
             <div class="col s10">
             {% for comment in book.comments %}
-              {{ comment }}
+              {{ comment[items] }}
             {% endfor %}
             </div>
           </li>
