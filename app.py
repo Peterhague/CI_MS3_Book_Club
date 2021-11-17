@@ -238,9 +238,7 @@ def add_comment(book_id):
         book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         comment = { "$push": {"comments": request.form.get("comment")}}
         comments_by = { "$push": {"comments_by" : session["user"]}}
-        comments_by_len = len(mongo.db.books.find_one({"_id": ObjectId(book_id)})["members"])
         commented_on = { "$push": {"commented_on" : book["book_title"]}}
-        index_value = { "$push": {"index_value" : comments_by_len}}
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         mongo.db.books.update({"_id": ObjectId(book_id)}, comment)
         mongo.db.books.update({"_id": ObjectId(book_id)}, comments_by)
