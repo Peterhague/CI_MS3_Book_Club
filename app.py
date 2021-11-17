@@ -105,7 +105,7 @@ def edit_details(this_user):
 
 
 @app.route("/close_account/<this_user>")
-def close_account:
+def close_account(this_user):
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     flash("Your Account Has Been Deleted")
