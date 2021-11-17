@@ -5,7 +5,7 @@
         <div class="col s12 m8 offset-m2">
             <div class="card-panel">
                 <h3 class="center-align light-blue-text darken-4">
-                    {{ username }}'s Profile
+                    My Profile
                 </h3>
             </div>
         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col s11">
                             {% if session.user|lower not in book.members|lower %}
-                            <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Join club</a>
+                            <a href="{{ url_for('join_club', book_id=book._id) }}" class="btn-floating light-blue lighten-1"><i class="center-icons fas fa-plus"></i></a>
                             {% else %}
                             <a href="{{ url_for('leave_club', book_id=book._id) }}" class="btn-small light-blue lighten-1">Leave club</a>
                             {% endif %}
